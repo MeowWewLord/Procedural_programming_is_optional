@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <time.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "math.h"
+#include <shellapi.h>
+#include <imagehlp.h>
+void runningString(char* text)
+{   int xex = 0;
+    printf("\nРасстояние убегания строки: ");
+    scanf("%d\n", &xex);
+    int length = strlen(text) + xex;
+    int offset = 0;
+
+    while (true)
+    {
+        system("cls");
+        for (int i = 0; i < offset; i++)
+        {
+            printf(" ");
+        }
+        printf("%s", text);
+        offset = (offset + 1) % length;
+        Sleep(100); 
+    }
+}
+
+int main()
+{   SetConsoleOutputCP(CP_UTF8);
+    char text[100];
+    printf("Введите текст для бегущей строки: ");
+    fgets(text, sizeof(text), stdin);
+    if (text[strlen(text) - 1] == '\n')
+    {
+        text[strlen(text) - 1] = '\0';
+    }
+    runningString(text);
+    return 0;
+}

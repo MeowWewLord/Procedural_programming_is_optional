@@ -1,0 +1,116 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <time.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "math.h"
+#include <shellapi.h>
+#include <imagehlp.h>
+#define MAX_WORD_LENGTH 100
+
+// Функция для проверки, является ли символ буквой
+bool isLetter(char c) {
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+        return true;
+    }
+    return false;
+}
+
+// Функция для приведения символа к нижнему регистру
+char toLower(char c) {
+    if (c >= 'A' && c <= 'Z') {
+        return c - ('A' - 'a');
+    }
+    return c;
+}
+
+int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    char word[MAX_WORD_LENGTH];
+    char guessedWord[MAX_WORD_LENGTH];
+    bool guessedLetters[MAX_WORD_LENGTH] = { false };
+    int attempts = 7;
+    int lettersRemaining;
+    char guess;
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_RED);
+    printf("            ВНИМАНИЕ! ATTETION! ACHTUNG!\n"
+           "    Цифровой Якубович внезапно американизировался\n"
+           "это значит, что он теперь понимает только инглиш букв\n\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_GREEN);
+    printf("Введите загаданное слово: ");
+    scanf("%s", word);
+
+    int wordLength = strlen(word);
+
+    // Очистка буфера ввода
+    while (getchar() != '\n');
+
+    // Заполнение начального состояния отгадываемого слова
+    for (int i = 0; i < wordLength; i++) {
+        if (isLetter(word[i])) {
+            guessedWord[i] = '-';
+        } else {
+            guessedWord[i] = word[i];
+        }
+    }
+    guessedWord[wordLength] = '\0';
+
+    while (attempts > 0) {
+        printf("\n");
+        printf("Угадываемое слово: %s\n", guessedWord);
+        printf("\nЖизни цифрового Якубовича:");
+        for (int i = attempts; i > 0; i--){
+            printf("♡");
+        }
+        printf("\n");
+        printf("И ваша буква это: ");
+        scanf("%c", &guess);
+        guess = toLower(guess);
+        // Очистка буфера ввода
+        while (getchar() != '\n');
+        bool letterFound = false;
+        // Проверяем, есть ли угаданная буква в слове
+        for (int i = 0; i < wordLength; i++) {
+            if (toLower(word[i]) == guess && !guessedLetters[i]) {
+                guessedWord[i] = word[i];
+                guessedLetters[i] = true;
+                letterFound = true;
+            }
+        }
+        if (letterFound) {
+            printf("И это правильная буква |%c|\n", guess);
+        } else {
+            printf("Увы, это не правильная буква |%c|\n", guess);
+            attempts--;
+        }
+        // Проверяем, остались ли еще неотгаданные буквы
+        lettersRemaining = 0;
+        for (int i = 0; i < wordLength; i++) {
+            if (!guessedLetters[i]) {
+                lettersRemaining++;
+            }
+        }
+        if (lettersRemaining == 0) {
+            printf("\n");
+            printf("Поздравляю! Вы угадали слово '%s'!\n", word);
+            sleep(3);
+            ShellExecute(0, 0, "https://www.youtube.com/watch?v=GIYIUGba1gY&t=4s", 0, 0 , SW_SHOW );
+            break;
+        }
+    }
+    if (attempts == 0) {
+        printf("\n");
+        printf("Увы, вы не угдали слово '%s' цифровой Якубович умер (>_<)\n", word);
+        sleep(3);
+        ShellExecute(0, 0, "https://www.youtube.com/watch?v=2zdYp78JVS8", 0, 0 , SW_SHOW );
+    }
+    return 0;
+}

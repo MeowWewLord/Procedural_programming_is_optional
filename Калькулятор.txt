@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+void calculator(){
+    float num1, num2, result;
+    int choice, xren = 0;
+    int DN = 0;
+    printf("Хотите продолжить Y - 1/N - 0?\n");
+    scanf("%d", &DN);
+    if (DN == 1) {
+        printf("Введите первое число:\n");
+        scanf("%f", &num1);
+
+        printf("Введите второе число:\n");
+        scanf("%f", &num2);
+
+        printf("Выберите действие:\n");
+        printf("1. Сложение\n");
+        printf("2. Вычитание\n");
+        printf("3. Умножение\n");
+        printf("4. Деление\n");
+        printf("5. Возведение в степень\n");
+        printf("6. Вычисление остатка от деления\n");
+
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                result = num1 + num2;
+                printf("Результат сложения: %.2f\n", result);
+                calculator();
+                xren += 1;
+            case 2:
+                result = num1 - num2;
+                printf("Результат вычитания: %.2f\n", result);
+                calculator();
+                xren += 1;
+            case 3:
+                result = num1 * num2;
+                printf("Результат умножения: %.2f\n", result);
+                calculator();
+                xren += 1;
+            case 4:
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    printf("Результат деления: %.2f\n", result);
+                } else {
+                    printf("Ошибка: деление на ноль!\n");
+                }
+                calculator();
+                xren += 1;
+            case 5:
+                result = 1;
+                for (int i = 0; i < num2; i++) {
+                    result *= num1;
+                }
+                printf("Результат возведения в степень: %.2f\n", result);
+                calculator();
+                xren += 1;
+            case 6:
+                if ((int) num2 != 0) {
+                    result = (int) num1 % (int) num2;
+                    printf("Результат вычисления остатка от деления: %.2f\n", result);
+                } else {
+                    printf("Ошибка: деление на ноль!\n");
+                }
+                calculator();
+                xren += 1;
+            default:
+                printf("Ошибка: неправильный выбор действия!\n");
+                calculator();
+                xren += 1;
+        }
+    }
+    else{
+        printf("ДОСВИДАНИЯ БОСС\n");
+        exit(1);
+    }
+}
+int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    int rezhenie = 0;
+    printf("ЗАПУСТИТЬ СИСТЕМУ Y - 1/N - 0?\n");
+    scanf("%d", &rezhenie);
+    if (rezhenie == 1){
+        calculator();
+    }
+    else{
+        printf("ДОСВИДАНИЯ БОСС");
+        exit(1);
+    }
+
+}

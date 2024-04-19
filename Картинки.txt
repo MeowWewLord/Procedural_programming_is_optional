@@ -1,0 +1,123 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <time.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "math.h"
+#include <shellapi.h>
+#include <imagehlp.h>
+//#include <windowsapi.h>
+void pingu(){
+    const int pengu_parts = 14;
+    char p1[100] =  "                            ";
+    char p2[100] =  "⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣷⡀  ";
+    char p3[100] =  "⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡛⠇⡇  ";
+    char p4[100] =  "⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⣀⡜⡇  ";
+    char p5[100] =  "⠀ ⠀⠀⠀⠀⠀⠀⣀⣠⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⡿⠟⠛⣷⠇ ";
+    char p6[100] =  " ⠀⠀⠀⠀⣠⣶⣿⠿⠻⢿⣿⣿⣿⠷⢤⡀⠀⠀⢸⠉⠁⠰⡹⠀";
+    char p7[100] =  "⠀ ⠀⠀⣼⣿⡟⠀⠀⠀⠀⠙⣿⠃⠀⠀⠱⡄⢀⡇⠀⠀⣦⠇⠀ ";
+    char p8[100] =  "⠀ ⠀⢰⣿⣿⠀⠰⠾⠷⠠⣴⣟⣲⠔⠿⠓⢳⡼⠀⠀⢰⡸⠀⠀";
+    char p9[100] =  "⠀⠀ ⣸⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣷⣶⡦⠃⠀⠀ ";
+    char p10[100] = " ⠀⠀⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⡯⠀⠀⠀⠀ ";
+    char p11[100] = " ⠀⠀⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠁⠀⠀⠀⠀ ";
+    char p12[100] = " ⢠⣶⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡇⠀⠀⠀⠀⠀ ";
+    char p13[100] = " ⠈⠿⣿⣿⣿⣿⣿⣄⣀⡀⠀⠀⠀⠀⠀⣀⣾⡛⠁⠀⠀⠀⠀⠀";
+    char p14[100] = " ⠀⠀⠀⠉⠉⠛⠿⠥⢄⡬⠵⠐⠒⠂⠉⠋⠉⠁⠀⠀⠀⠀⠀⠀";
+    char *pengu[100] = {p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14};
+    printf("СКОЛЬКО РАЗ ХОТИТЕ ПРИНТАНУТЬ ПИНГВИНА\r\n"
+           "МАКСИМУМ 4 ШТУКИ, А ТО ПИНГВИНА РАЗОРВЕТ ( ´ ω ` )\r\n"
+           "Количество пинвинчиков:");
+    int stopor = 0;
+    scanf("%d", &stopor);
+    if (stopor > 4){
+        printf("Я Предупреждал тебя");
+        for (int i = 0; i < 4; i++){
+            printf(".");
+            usleep(1250000);}
+        printf("\tТЫ ПОЖАЛЕЕШЬ ОБ ЭТОМ\r\n");
+        usleep(1000000);
+        printf("\r\n凸ಠ益ಠ)凸 ПЛЮЩИМ ПИНГВИНОВ 凸ಠ益ಠ)凸\r\n\r\n");
+        usleep(2250000);
+    }
+    for (int i = 0; i < pengu_parts; i++){
+        for (int j = 0; j < stopor; j++){
+            printf("%s", pengu[i]);
+        }
+        puts("");
+    }
+    if (stopor > 4){
+        ShellExecute(0, 0, "https://youtu.be/dQw4w9WgXcQ", 0, 0 , SW_SHOW );
+    }}
+void nancat(){
+    const int pengu_parts = 10;
+    char p1[105] = "          ▄▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▄        ";
+    char p2[105] = "         █░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░█       ";
+    char p3[105] = "         █░▒▒▒▒▒▒▒▒▒▒▄▀▀▄▒▒▒░░█▄▀▀▄   ";
+    char p4[105] = "    ▄▄   █░▒▒▒▒▒▒▒▒▒▒█▓▓▓▀▄▄▄▄▀▓▓▓█   ";
+    char p5[105] = "  █▓▓█▄▄█░▒▒▒▒▒▒▒▒▒▄▀▓▓▓▓▓▓▓▓▓▓▓▓▀▄   ";
+    char p6[105] = "   ▀▄▄▓▓█░▒▒▒▒▒▒▒▒▒█▓▓▓▄█▓▓▓▄▓▄█▓▓█   ";
+    char p7[105] = "       ▀▀█░▒▒▒▒▒▒▒▒▒█▓▒▒▓▄▓▓▄▓▓▄▓▒▒█  ";
+    char p8[105] = "        ▄█░░▒▒▒▒▒▒▒▒▒▀▄▓▓▀▀▀▀▀▀▀▓▄▀   ";
+    char p9[105] = "      ▄▀▓▀█▄▄▄▄▄▄▄▄▄▄▄▄██████▀█▀▀     ";
+    char p10[105] = "      █▄▄▀ █▄▄▀       █▄▄▀ ▀▄▄█       ";
+    char *pengu[105] = {p1, p2, p3, p4, p5, p6, p7, p8, p9, p10};
+    printf("СКОЛЬКО РАЗ ХОТИТЕ ПРИНТАНУТЬ НЯНКЭТОВ\r\n"
+           "МАКСИМУМ 3 ШТУКИ, А ТО НЯНКЭТА РАЗОРВЕТ ( ´ ω ` )\r\n"
+           "Количество нянкэтов:");
+    int stopor = 0;
+    scanf("%d", &stopor);
+    if (stopor > 3){
+        printf("Я Предупреждал тебя");
+        for (int i = 0; i < 4; i++){
+            printf(".");
+            usleep(1250000);}
+        printf("\tТЫ ПОЖАЛЕЕШЬ ОБ ЭТОМ\r\n");
+        usleep(1000000);
+        printf("\r\n凸ಠ益ಠ)凸 ПЛЮЩИМ НЯНКЭТОВ 凸ಠ益ಠ)凸\r\n\r\n");
+        usleep(2250000);
+    }
+    puts("");
+    for (int i = 0; i < pengu_parts; i++){
+        for (int j = 0; j < stopor; j++){
+            printf("%s", pengu[i]);
+        }
+        puts("");
+    }
+    if (stopor > 3){
+        ShellExecute(0, 0, "https://www.youtube.com/watch?v=zqLEO5tIuYs", 0, 0 , SW_SHOW );
+    }
+    }
+
+int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    int rezhenie = 0;
+    printf("\nЗАПУСТИТЬ СИСТЕМУ Y - 1/N - 0?\r\n");
+    scanf("%d", &rezhenie);
+    if (rezhenie == 1){
+        printf("КОГО СЕГОДНЯ БУДЕМ РИСОВАТЬ?\r\n"
+               "ПИНГУ-ПИНГУ - 1 | НЯНКЭТ - 2\n");
+        int morpheus = 0;
+        scanf("%d", &morpheus);
+        if (morpheus == 1){
+            pingu();
+        }
+        else{
+            if (morpheus == 2){
+                nancat();
+            }
+            else{
+                printf("Я ВАС НЕ СОВСЕМ ПОНЯЛА. ПРОИЗВЕДИТЕ ВВОД ЗАНОВО.");
+                main();
+            }
+        }
+    }
+    else{
+        printf("ДОСВИДАНИЯ БОСС");
+        exit(1);
+    }
+    main();
+}

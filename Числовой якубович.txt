@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <time.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "math.h"
+#include <shellapi.h>
+#include <imagehlp.h>
+//#include <windowsapi.h>
+//2.	Реализовать игру «Угадай число». Случайным образом загадывается число. Пользователь должен вводит числа. Если число больше или меньше программа сообщает ему об этом. Ввод продолжается пока пользователь не угадает число.
+//a.	Добавить количество попыток
+int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    srand(time(NULL));
+    int rezhenie = 0;
+    printf("\nЗАПУСТИТЬ СИСТЕМУ Y - 1/N - 0?\r\n");
+    scanf("%d", &rezhenie);
+    int comp_zn = 0, pol_zn = 0, rand_zn = 0, hearts = 0;
+    if (rezhenie == 1){
+        printf("ВВЕДИТЕ ДИАПАЗОН ОТ 1 ДО 100:");
+        scanf("%d", &rand_zn);
+        comp_zn = (1 + rand() % rand_zn);
+        printf("ВВЕДИТЕ КОЛИЧЕСТВО ЖИЗНЕЙ:");
+        scanf("%d", &hearts);
+//        printf("МАШИННОЕ ЗНАЧЕНИЕ ДЛЯ ОТЛАДКИ |%1d|", comp_zn);
+        while (hearts > 0){
+            printf("\nЖИЗНИ: ");
+            for (int i = hearts; i > 0; i--){
+                printf("♡");}
+            printf("\nНАЧИНАЕМ УГАДЫВАТЬ:");
+            scanf("%d", &pol_zn);
+            if (pol_zn < comp_zn){
+                printf("\nЭХХ ЭТО МЕНЬШЕ ЧЕМ НАДО");
+                hearts = hearts - 1;
+            }1
+
+            else{
+                if (pol_zn > comp_zn){
+                    printf("\nЭХХ ЭТО БОЛЬШЕ ЧЕМ НАДО");
+                    hearts = hearts - 1;
+                }
+                else{
+                    if (pol_zn == comp_zn){
+                    printf("\nТО ЧТО НАДО - ТЫ ПОБЕДИЛ");
+                    main();
+                }}
+            }
+        }
+        printf("GAME OVER");
+        sleep(2);
+        ShellExecute(0, 0, "https://youtu.be/dQw4w9WgXcQ", 0, 0 , SW_SHOW );
+        main();
+    }
+    else{
+        printf("ДОСВИДАНИЯ БОСС");
+        exit(1);
+    }
+    main();
+}
